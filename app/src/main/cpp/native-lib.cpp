@@ -13,11 +13,11 @@ Java_com_my_ndkdynamicdemo_MainActivity_stringFromJNI(JNIEnv *env, jobject thiz)
 /************************************************** 以下是动态注册 *******************************************************/
 #define JNI_REG_CLASS "com/my/ndkdynamicdemo/MainActivity" // path of Java file
 
-JNIEXPORT jstring JNICALL get_hello(JNIEnv *env, jclass clazz) {
+JNIEXPORT jstring JNICALL get_hello(JNIEnv *env, jobject obj) {
     return env->NewStringUTF("hello from jni dynamic");
 }
 
-JNIEXPORT jint JNICALL meaning_of_the_universe(JNIEnv *env, jclass clazz) {
+JNIEXPORT jint JNICALL meaning_of_the_universe(JNIEnv *env, jobject obj) {
     return 42;
 }
 

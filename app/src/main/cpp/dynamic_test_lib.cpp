@@ -6,7 +6,7 @@
 #define JNI_REG_CLASS "com/my/ndkdynamicdemo/util/MyUtil" // path of Java file
 
 JNIEXPORT jstring JNICALL get_hello(JNIEnv *env, jobject obj) {
-    return env->NewStringUTF("hello from jni dynamic");
+    return env->NewStringUTF("hello from ndk dynamic");
 }
 
 JNIEXPORT jint JNICALL meaning_of_the_universe(JNIEnv *env, jobject obj) {

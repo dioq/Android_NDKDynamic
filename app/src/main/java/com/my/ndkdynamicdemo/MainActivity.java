@@ -6,38 +6,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.my.ndkdynamicdemo.util.MyUtil;
+
 public class MainActivity extends AppCompatActivity {
 
-    // Used to load the 'native-lib' library on application startup.
-    static {
-        System.loadLibrary("native-lib");
-    }
-
     private TextView showText;
+    private MyUtil myUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        showText = (TextView) findViewById(R.id.textBloardId);
+        showText = findViewById(R.id.textBloardId);
+        myUtil = new MyUtil();
     }
 
     public void click1(View view) {
-        String result = getHello();
+        String result = myUtil.getHello();
         showText.setText(result);
     }
 
     public void click2(View view) {
-        int result = meaningOfTheUniverse();
-        showText.setText("返回值："+result);
+        int result = myUtil.meaningOfTheUniverse();
+        showText.setText("返回值：" + result);
     }
-
-    public native String stringFromJNI();
-
-    //动态注册
-    public native String getHello();
-
-    //动态注册
-    public native int meaningOfTheUniverse();
 
 }

@@ -2,16 +2,8 @@
 #include <string>
 #include <stdio.h>
 
-extern "C"
-JNIEXPORT jstring JNICALL
-Java_com_my_ndkdynamicdemo_MainActivity_stringFromJNI(JNIEnv *env, jobject thiz) {
-    // TODO: implement stringFromJNI()
-    std::string hello = "Hello from C++";
-    return env->NewStringUTF(hello.c_str());
-}
-
 /************************************************** 以下是动态注册 *******************************************************/
-#define JNI_REG_CLASS "com/my/ndkdynamicdemo/MainActivity" // path of Java file
+#define JNI_REG_CLASS "com/my/ndkdynamicdemo/util/MyUtil" // path of Java file
 
 JNIEXPORT jstring JNICALL get_hello(JNIEnv *env, jobject obj) {
     return env->NewStringUTF("hello from jni dynamic");
